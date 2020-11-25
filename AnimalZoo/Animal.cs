@@ -7,21 +7,58 @@ using System.Threading.Tasks;
 
 namespace AnimalZoo
 {
-    class Animal
+    public class Animal
     {
-        public enum SPECIES { CAT, DOG, BIRD};
+        private enum SPECIES { CAT, DOG, BIRD};
 
-        public string name;
-        public SPECIES species;
-        public bool canFly;
+        private string name;
+        private SPECIES species;
+        private bool canFly;
+
+        private static int currentYear = 2020;
+        private int birthyear;
+
+        public Animal(int age)
+        {
+            this.birthyear = Animal.currentYear - age;
+        }
+
+        public int GetAge()
+        {
+            return Animal.currentYear - this.birthyear;
+        }
+
+        private int age;
+
+        public Animal(int age)
+        {
+            this.age = age;
+        }
+
+        public int GetAge()
+        {
+            return age;
+        }
+        
+        public string GetName()
+        {
+            return name;
+        }
+
+        public SPECIES GetSpecies()
+        {
+            return SPECIES;
+        }
+
+
 
         public virtual void IntroduceYourself()
         {
-            if (canFly == true)
+            if (canFly == true) //If the animal can fly write this
             {
                 Console.WriteLine("Jag kan flyga! ");
             }
-            else
+            else //If the animal can't fly write this. 
             {
                 Console.WriteLine("Jag kan inte flyga :(");
             }
