@@ -8,12 +8,12 @@ namespace AnimalZoo
 {
     class Cat : Animal
     {
-        public Cat(string name)
+        public Cat(string name, int age) : base(age)
         {
             /*initiera attributen i objektet*/
-            species = SPECIES.CAT;
-            canFly = false;
-            base.name = name;
+            SetSpecies(SPECIES.CAT);
+            SetCanFly(false);
+            SetName(name);
         }
         /*public override void IntroduceYourself() //This overwrites the function thats in the parent
         {
@@ -22,8 +22,8 @@ namespace AnimalZoo
         }*/
         public override void IntroduceYourself()
         {
-            Console.WriteLine("Mjau. Jag är en katt som heter " + this.name + ".");
-            Console.WriteLine("Jag är " + this.age + " år gammal.");
+            Console.WriteLine("Mjau. Jag är en katt som heter " + GetName() + ".");
+            Console.WriteLine("Jag är " + GetAge() + " år gammal.");
         }
     }
 

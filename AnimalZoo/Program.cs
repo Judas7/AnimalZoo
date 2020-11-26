@@ -43,24 +43,25 @@ namespace AnimalZoo
             vilma.IntroduceYourself();
             Console.ReadKey();
         }*/
-
-        public class Animal
+        public static void Main(string[] args)
         {
-            private static int currentYear = 2019;
-            private int birthyear;
+            Animal.SetYear(2019); // Så här anropar man en klassmetod,
+                                  // dvs en statisk metod.
+                                  // Hur ska koden för setYear se ut?
 
-            public Animal(int age)
-            {
-                this.birthyear = Animal.currentYear - age;
-            }
+            Animal kurre = new Cat("Kurre", 6);
+            Animal vilma = new Dog("Vilma", 3);
 
-            public int GetAge()
-            {
-                return Animal.currentYear - this.birthyear;
-            }
-            
+            kurre.IntroduceYourself();
+            vilma.IntroduceYourself();
+
+            Animal.SetYear(2020); // Nu blir är ett nytt år för alla djur.
+
+            kurre.IntroduceYourself();
+            vilma.IntroduceYourself();
+            Console.ReadKey();
         }
 
-
     }
+
 }

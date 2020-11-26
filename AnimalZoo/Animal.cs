@@ -9,35 +9,28 @@ namespace AnimalZoo
 {
     public class Animal
     {
-        private enum SPECIES { CAT, DOG, BIRD};
+        public enum SPECIES { CAT, DOG, BIRD};
 
         private string name;
         private SPECIES species;
         private bool canFly;
 
         private static int currentYear = 2020;
-        private int birthyear;
+        private int birthYear;
 
         public Animal(int age)
         {
-            this.birthyear = Animal.currentYear - age;
+            this.birthYear = Animal.currentYear - age;
         }
 
         public int GetAge()
         {
-            return Animal.currentYear - this.birthyear;
+            return Animal.currentYear - this.birthYear;
         }
 
-        private int age;
-
-        public Animal(int age)
+        public static void SetYear(int year)
         {
-            this.age = age;
-        }
-
-        public int GetAge()
-        {
-            return age;
+            currentYear = year;
         }
         
         public string GetName()
@@ -45,12 +38,30 @@ namespace AnimalZoo
             return name;
         }
 
-        public SPECIES GetSpecies()
+        public void SetName(string name)
         {
-            return SPECIES;
+            this.name = name;
         }
 
+        public SPECIES GetSpecies()
+        {
+            return species;
+        }
 
+        public void SetSpecies(SPECIES species)
+        {
+            this.species = species;
+        }
+
+        public bool GetCanFly()
+        {
+            return canFly;
+        }
+
+        public void SetCanFly(bool canFly)
+        {
+            this.canFly = canFly;
+        }
 
         public virtual void IntroduceYourself()
         {
@@ -63,6 +74,7 @@ namespace AnimalZoo
                 Console.WriteLine("Jag kan inte flyga :(");
             }
             Console.WriteLine("Min art är en:" + species);
+            
         }
     }
 }
